@@ -1,3 +1,10 @@
+<?php
+if (isset($_FILES['file'])) {
+    $path = "uploads/" . $_FILES['file']['name'];
+    move_uploaded_file($_FILES['file']['tmp_name'], $path);
+    echo "Uploaded to $path";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
