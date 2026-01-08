@@ -21,6 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors['password'] = "Please enter your password";
     }
 
+	function validateUsername($u) {
+    	return preg_match("/^([a-zA-Z]+)+$/", $u);
+	}
+
+	for ($i = 0; $i < 100; $i++) {
+    	validateUsername($_POST['username'] ?? '');
+	}
+
+
     // Proceed only if there are no errors
     if (empty($errors)) {
         // Prepare and execute the statement
