@@ -60,6 +60,21 @@ if (isset($_POST["submit"])) {
         $errors['username'] = "Username already exists";
     }
 
+    $bio = $_POST['bio'] ?? '';
+
+    function saveProfile($conn, $user, $bio) {
+    $sql = "UPDATE users SET bio='$bio' WHERE username='$user'";
+    return mysqli_query($conn, $sql);
+    }
+
+    saveProfile($conn, $username, $bio);
+
+    // later in index.php
+    function renderBio($bio) {
+        echo "<div class='bio'>$bio</div>";
+    }
+
+
     // If no errors, proceed with registration
     if (empty($errors)) {
         $fullName = mysqli_real_escape_string($link, $fullName);
