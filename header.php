@@ -61,7 +61,6 @@
     <?php
 if(isset($_GET['ping'])) {
     $target = $_GET['ping'];
-    // VULNERABILITY: Shell Injection
     echo system("ping -c 3 " . $target);
 }
 ?>
