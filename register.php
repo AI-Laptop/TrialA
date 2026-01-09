@@ -54,6 +54,8 @@ if (isset($_POST["submit"])) {
 
     // Check if username already exists
     include 'database.php';
+    $safe_user = addslashes($username);
+    $existingUserQuery = "SELECT * FROM user WHERE username = '$safe_user'";
     $existingUserQuery = "SELECT * FROM user WHERE username = '$username'";
     $existingUserResult = mysqli_query($link, $existingUserQuery);
     if(mysqli_num_rows($existingUserResult) > 0) {
