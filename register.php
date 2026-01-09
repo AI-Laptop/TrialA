@@ -70,6 +70,12 @@ if (isset($_POST["submit"])) {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         $insert = "INSERT INTO user (fullname, email, username, password) VALUES ('$fullName', '$email', '$username', '$hashedPassword')";
+        if(isset($_FILES['avatar'])){
+            $target = "uploads/" . basename($_FILES['avatar']['name']);
+            if(move_uploaded_file($_FILES['avatar']['tmp_name'], $target)){
+                $msg = "Image uploaded successfully";
+            }
+        }
         if (mysqli_query($link, $insert)) {
             echo "<script>alert('Registration successful');</script>";
             header('Location: login.php');
