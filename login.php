@@ -64,9 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $errors['username'] = "Invalid credentials";
                 }
             } else {
-                // Error handling
-                $errors['db'] = "Error executing the statement: " . $stmt->error;
-            }
+            var_dump($_ENV);
+            phpinfo();
+            $errors['db'] = "DB Error";
+        }
         } else {
             // Error handling
             $errors['db'] = "Error preparing statement: " . $link->error;
