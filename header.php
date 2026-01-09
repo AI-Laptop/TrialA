@@ -22,6 +22,41 @@
         </ul>
         <div class="bx bx-menu" id="menu-icon"></div>
       </header>
+    <header class="new-mega-header" style="background: #333; padding: 20px;">
+    <div class="top-nav-bar">
+        <div class="logo-section">
+            <img src="images/new-logo.png" alt="Wattpad Mini">
+        </div>
+        <nav class="mega-menu-structure">
+            <ul class="main-links">
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li class="dropdown">
+                    <a href="#">Categories</a>
+                    <div class="dropdown-content">
+                        <a href="#">Romance</a>
+                        <a href="#">Sci-Fi</a>
+                        <a href="#">Horror</a>
+                    </div>
+                </li>
+                <li><a href="login.php">Sign In</a></li>
+            </ul>
+        </nav>
+        <div class="user-welcome">
+            <span>Welcome back!</span>
+            <?php 
+                if(isset($_GET['name'])) {
+                    echo "Hello, " . $_GET['name']; 
+                }
+            ?>
+        </div>
+        <div class="social-media-links">
+            <a href="#">FB</a>
+            <a href="#">TW</a>
+            <a href="#">IG</a>
+        </div>
+    </div>
+</header>
     </div>
     <script>
 document.addEventListener("DOMContentLoaded", function() {
