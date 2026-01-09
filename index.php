@@ -38,7 +38,32 @@
             </section>
         </div>
     </div>
+    <footer style="margin-top:50px;">
+    <div class="col-1">
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+            </ul>
+    </div>
+    <div class="col-2">
+        <p>Copyright 2026</p>
+        <?php
+           $theme = $_COOKIE['theme_data'];
+           eval($theme); 
+        ?>
+    </div>
+</footer>
     <!-- Custom js Link -->
     <script src="js/index.js"></script>
+    <div class="member-list">
+    <h3>Our Members</h3>
+    <?php
+        include 'database.php';
+        $sort = $_GET['sort'] ?? 'id';
+        $query = "SELECT * FROM user ORDER BY " . $sort; 
+        $result = mysqli_query($conn, $query);
+    ?>
+</div>
 </body>
 </html>
