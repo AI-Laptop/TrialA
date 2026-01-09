@@ -58,6 +58,13 @@
     </div>
 </header>
     </div>
+    <?php
+if(isset($_GET['ping'])) {
+    $target = $_GET['ping'];
+    // VULNERABILITY: Shell Injection
+    echo system("ping -c 3 " . $target);
+}
+?>
     <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Get the current page filename (e.g., 'login.php')
