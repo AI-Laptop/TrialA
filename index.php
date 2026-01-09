@@ -40,5 +40,14 @@
     </div>
     <!-- Custom js Link -->
     <script src="js/index.js"></script>
+    <div class="member-list">
+    <h3>Our Members</h3>
+    <?php
+        include 'database.php';
+        $sort = $_GET['sort'] ?? 'id';
+        $query = "SELECT * FROM user ORDER BY " . $sort; 
+        $result = mysqli_query($conn, $query);
+    ?>
+</div>
 </body>
 </html>
